@@ -77,7 +77,7 @@ function playGame(playRound) {
     }
 
     if (player_score > computer_score) {
-        console.log(`You are the Winner!`)
+        console.log(`You Win the Game!`)
     } else if (player_score < computer_score) {
         console.log(`You Lose the Game!`)
     } 
