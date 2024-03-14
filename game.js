@@ -58,29 +58,59 @@ function playRound(playerSelection, computerSelection) {
 }
 
 //Write a function to call the playRound function 5x, keep score, and report a winner/loser
-function playGame(playRound) {
     let player_score = 0;
     let computer_score = 0;
-
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt("Enter Rock, Paper, or Scissors:");
-        const computerSelection = getComputerChoice();
-        const result = playRound(playerSelection, computerSelection);
     
-        console.log(result);
 
-        if (result.includes("Win")) {
-            player_score++;
-        } else if (result.includes("Lose")) {
-            computer_score++;
-        }
-    }
 
-    if (player_score > computer_score) {
-        console.log(`You Win the Game!`)
-    } else if (player_score < computer_score) {
-        console.log(`You Lose the Game!`)
-    } 
+
+
+//Write a function to update the result display
+function updateResultDisplay (result) {
+    let resultDisplay = document.getElementById('resultDisplay');
+    resultDisplay.textContent = result;
 }
 
-playGame(playRound);
+const selectionImages = document.querySelectorAll('.selection');
+selectionImages.forEach(image => {
+    image.addEventListener('click', function() {
+        const playerSelection = this.getAttribute('data-choice');
+        const computerSelection = getComputerChoice();
+        const result = playRound(playerSelection, computerSelection);
+        updateResultDisplay(result);
+    });
+});
+
+//Add buttons in place of a prompt and add event listeners for each
+let rock = document.createElement("button");
+rock.textContent = "Rock";
+let paper = document.createElement("button");
+paper.textContent = "Paper";
+let scissors = document.createElement("button");
+scissors.textContent = "Scissors";
+
+rock.addEventListener("click", function () {
+    console.log("Rock button clicked");
+    let result = playRound("ROCK", getComputerChoice());
+    console.log("Result: ", result);
+    updateResultDisplay(result); 
+});
+
+paper.addEventListener("click", function () {
+    console.log("Paper button clicked");
+    let result = playRound("PAPER", getComputerChoice());
+    console.log("Result: ", result);
+    updateResultDisplay(result);
+});
+
+scissors.addEventListener("click", function () {
+    console.log("Scissors button clicked");
+    let result = playRound("SCISSORS", getComputerChoice());
+    console.log("Result: ", result);
+    updateResultDisplay(result); 
+});
+
+console.log("Rock button:", rock);
+console.log("Paper button:", paper);
+console.log("Scissors button:", scissors);
+

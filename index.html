@@ -3,10 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="game.js" defer></script>
     <title class="title">Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <div class="choices">
+        <div>
+            <img class="selection grow" src="images/rock.png" alt="rock" data-choice="rock" draggable="false">
+            <p>ROCK</p>
+        </div>
+        <div>
+            <img class="selection grow" src="images/paper.png" alt="paper" data-choice="paper" draggable="false">
+            <p>PAPER</p>
+        </div>
+        <div>
+            <img class="selection grow" src="images/scissors.png" alt="scissors" data-choice="scissors" draggable="false">
+            <p>SCISSORS</p>
+        </div>
+    </div>
+    <div class="results">
+        <div id="resultDisplay"></div>
+    </div>
+    <div class="choose">CHOOSE 5x</div>
+    <script src="game.js"></script>
 </body>
 </html>
