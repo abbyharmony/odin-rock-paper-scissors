@@ -1,69 +1,66 @@
+let player_score = 0;
+let computer_score = 0;
+let roundsPlayed = 0;
+
 //Write a function that randomly returns 'Rock', 'Paper', or 'Scissors'
 function getComputerChoice() {
     let choices = ["Rock", "Paper", "Scissors"];
     let randomInd = Math.floor(Math.random() * choices.length);
     return choices[randomInd];
+
 }
 
-/* Write a function that plays a single round of the game.
-Should have wo parameters: the playerSelection and computerSelection
-Return a string for winner/tie like so: "You Lose! Paper beats Rock"
-playerSelection parameter should be case-insensitive 
-Return results of function call, not console.log() them. */
+function updateScoreboard() {
+    document.getElementById("player_score").textContent = player_score;
+    document.getElementById("computer_score").textContent = computer_score;
+}
+
+// Write a function that plays a single round of the game.
 function playRound(playerSelection, computerSelection) {
+    roundsPlayed++;
     let playerSelectionCap = playerSelection.toUpperCase();
     let computerSelectionCap = computerSelection.toUpperCase();
-//In case of tie goes first
-    if (playerSelectionCap == computerSelectionCap) {
+    if (playerSelectionCap === computerSelectionCap) {
         return "You Tie!";
     } else {
         switch (playerSelectionCap) {
             case "ROCK":
-                switch (computerSelectionCap) {
-                    case "PAPER":
+                if (computerSelectionCap === "PAPER") {
+                    computer_score++
+                    updateScoreboard()
+                    document.addEventListener("DOMContentLoaded", )
                     return "You Lose! Paper covers Rock";
-                    case "SCISSORS":
+                } else {
+                    player_score++
+                    updateScoreboard()
                     return "You Win! Rock smashes Scissors";
-                    default:
-                    return "Invalid selection";
                 }
-                break;
-
             case "PAPER":
-                switch (computerSelectionCap) {
-                    case "ROCK":
+                if (computerSelectionCap === "ROCK") {
+                    player_score++
+                    updateScoreboard()
                     return "You Win! Paper covers Rock";
-                    case "SCISSORS":
+                } else {
+                    computer_score++
+                    updateScoreboard()
                     return "You Lose! Scissors cut Paper";
-                    default:
-                    return "Invalid selection";
                 }
-                break;
-
             case "SCISSORS":
-                switch (computerSelectionCap) {
-                    case "ROCK":
+                if (computerSelectionCap === "ROCK") {
+                    computer_score++
+                    updateScoreboard()
                     return "You Lose! Rock smashes Scissors";
-                    case "PAPER":
+                } else {
+                    player_score++
+                    updateScoreboard()
                     return "You Win! Scissors cut Paper";
-                    default:
-                    return "Invalid selection";
                 }
-                break;
-
             default:
-            return "Invalid Selection";
-        }
-    }
-}
+                return "Invalid Selection";
+        } 
+    } 
 
-//Write a function to call the playRound function 5x, keep score, and report a winner/loser
-    let player_score = 0;
-    let computer_score = 0;
-    
-
-
-
+}  
 
 //Write a function to update the result display
 function updateResultDisplay (result) {
@@ -84,33 +81,26 @@ selectionImages.forEach(image => {
 //Add buttons in place of a prompt and add event listeners for each
 let rock = document.createElement("button");
 rock.textContent = "Rock";
+
 let paper = document.createElement("button");
 paper.textContent = "Paper";
+
 let scissors = document.createElement("button");
 scissors.textContent = "Scissors";
 
+//Add event listeners to prompt the display results from each round
 rock.addEventListener("click", function () {
-    console.log("Rock button clicked");
     let result = playRound("ROCK", getComputerChoice());
-    console.log("Result: ", result);
     updateResultDisplay(result); 
 });
 
 paper.addEventListener("click", function () {
-    console.log("Paper button clicked");
     let result = playRound("PAPER", getComputerChoice());
-    console.log("Result: ", result);
     updateResultDisplay(result);
 });
 
 scissors.addEventListener("click", function () {
-    console.log("Scissors button clicked");
     let result = playRound("SCISSORS", getComputerChoice());
-    console.log("Result: ", result);
     updateResultDisplay(result); 
 });
-
-console.log("Rock button:", rock);
-console.log("Paper button:", paper);
-console.log("Scissors button:", scissors);
 
