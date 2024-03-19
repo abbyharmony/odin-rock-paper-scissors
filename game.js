@@ -1,13 +1,13 @@
 let player_score = 0;
 let computer_score = 0;
 let roundsPlayed = 0;
+const totalRounds = 5;
 
 //Write a function that randomly returns 'Rock', 'Paper', or 'Scissors'
 function getComputerChoice() {
     let choices = ["Rock", "Paper", "Scissors"];
     let randomInd = Math.floor(Math.random() * choices.length);
     return choices[randomInd];
-
 }
 
 function updateScoreboard() {
@@ -20,6 +20,7 @@ function playRound(playerSelection, computerSelection) {
     roundsPlayed++;
     let playerSelectionCap = playerSelection.toUpperCase();
     let computerSelectionCap = computerSelection.toUpperCase();
+    
     if (playerSelectionCap === computerSelectionCap) {
         return "You Tie!";
     } else {
@@ -75,8 +76,23 @@ selectionImages.forEach(image => {
         const computerSelection = getComputerChoice();
         const result = playRound(playerSelection, computerSelection);
         updateResultDisplay(result);
+
+        if (roundsPlayed === totalRounds) {
+            displayWinner();
+        }
     });
 });
+
+function displayWinner() {
+    let winnerDisplay = document.getElementById("winnerDisplay");
+    if (player_score > computer_score) {
+        winnerDisplay.textContent = "You win the game!";
+    } else if (player_score < computer_score) {
+        winnerDisplay.textContent = "Computer wins the game!";
+    } else {
+        winnerDisplay.textContent = "You tied!";
+    }
+}
 
 //Add buttons in place of a prompt and add event listeners for each
 let rock = document.createElement("button");
