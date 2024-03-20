@@ -1,7 +1,7 @@
 let player_score = 0;
 let computer_score = 0;
 let roundsPlayed = 0;
-const totalRounds = 5;
+
 
 //Write a function that randomly returns 'Rock', 'Paper', or 'Scissors'
 function getComputerChoice() {
@@ -27,46 +27,46 @@ function playRound(playerSelection, computerSelection) {
         switch (playerSelectionCap) {
             case "ROCK":
                 if (computerSelectionCap === "PAPER") {
-                    computer_score++
-                    updateScoreboard()
-                    document.addEventListener("DOMContentLoaded", )
+                    computer_score++;
+                    updateScoreboard();
                     return "You Lose! Paper covers Rock";
                 } else {
-                    player_score++
-                    updateScoreboard()
+                    player_score++;
+                    updateScoreboard();
                     return "You Win! Rock smashes Scissors";
                 }
             case "PAPER":
                 if (computerSelectionCap === "ROCK") {
-                    player_score++
-                    updateScoreboard()
+                    player_score++;
+                    updateScoreboard();
                     return "You Win! Paper covers Rock";
                 } else {
-                    computer_score++
-                    updateScoreboard()
+                    computer_score++;
+                    updateScoreboard();
                     return "You Lose! Scissors cut Paper";
                 }
             case "SCISSORS":
                 if (computerSelectionCap === "ROCK") {
-                    computer_score++
-                    updateScoreboard()
+                    computer_score++;
+                    updateScoreboard();
                     return "You Lose! Rock smashes Scissors";
                 } else {
-                    player_score++
-                    updateScoreboard()
+                    player_score++;
+                    updateScoreboard();
                     return "You Win! Scissors cut Paper";
                 }
             default:
                 return "Invalid Selection";
         } 
     } 
-
 }  
 
-//Write a function to update the result display
 function updateResultDisplay (result) {
     let resultDisplay = document.getElementById('resultDisplay');
     resultDisplay.textContent = result;
+    if (player_score === 5 || computer_score === 5) {
+        document.getElementById("resultDisplay").style.display = "none";
+    }
 }
 
 const selectionImages = document.querySelectorAll('.selection');
@@ -76,20 +76,17 @@ selectionImages.forEach(image => {
         const computerSelection = getComputerChoice();
         const result = playRound(playerSelection, computerSelection);
         updateResultDisplay(result);
-
-        if (roundsPlayed === totalRounds) {
-            displayWinner();
-        }
+        displayWinner();
     });
 });
 
 function displayWinner() {
     let winnerDisplay = document.getElementById("winnerDisplay");
-    if (player_score > computer_score) {
+    if (player_score === 5 && player_score > computer_score) {
         winnerDisplay.textContent = "You win the game!";
-    } else if (player_score < computer_score) {
+    } else if (computer_score === 5 && player_score < computer_score) {
         winnerDisplay.textContent = "Computer wins the game!";
-    } else {
+    } else if (player_score === 5 && computer_score === 5) {
         winnerDisplay.textContent = "You tied!";
     }
 }

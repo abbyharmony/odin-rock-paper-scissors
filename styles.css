@@ -33,7 +33,7 @@ img {
     }
 
 p {
-    font-size: 60px;
+    font-size: 50px;
     text-align: center;
     margin-top: 0;
     margin-bottom: 0;
@@ -51,11 +51,17 @@ p {
 }
 
 #resultDisplay {
-    font-size: 30px;
+    font-size: 60px;
     color: lime;
     background-color: black;
     margin-top: 20px;
     margin-bottom: -30px;
+}
+
+#winnerDisplay {
+    font-size: 100px;
+    color: white;
+    background-color: lime;
 }
 
 .choose{
