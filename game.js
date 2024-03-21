@@ -86,8 +86,6 @@ function displayWinner() {
         winnerDisplay.textContent = "You win the game!";
     } else if (computer_score === 5 && player_score < computer_score) {
         winnerDisplay.textContent = "Computer wins the game!";
-    } else if (player_score === 5 && computer_score === 5) {
-        winnerDisplay.textContent = "You tied!";
     }
 }
 
