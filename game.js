@@ -10,12 +10,13 @@ function getComputerChoice() {
     return choices[randomInd];
 }
 
+//Update player_score vs computer_score on the scoreboard
 function updateScoreboard() {
     document.getElementById("player_score").textContent = player_score;
     document.getElementById("computer_score").textContent = computer_score;
 }
 
-// Write a function that plays a single round of the game.
+// Write a function that plays a single round of the game. It updates scores accordingly
 function playRound(playerSelection, computerSelection) {
     roundsPlayed++;
     let playerSelectionCap = playerSelection.toUpperCase();
@@ -61,6 +62,7 @@ function playRound(playerSelection, computerSelection) {
     } 
 }  
 
+//Update the results display when called and removes round win/lose messages at end of game
 function updateResultDisplay (result) {
     let resultDisplay = document.getElementById('resultDisplay');
     resultDisplay.textContent = result;
@@ -69,6 +71,7 @@ function updateResultDisplay (result) {
     }
 }
 
+//Allows clickable images, calls updateResultsDisplay/displayWinner functions
 const selectionImages = document.querySelectorAll('.selection');
 selectionImages.forEach(image => {
     image.addEventListener('click', function() {
@@ -80,6 +83,7 @@ selectionImages.forEach(image => {
     });
 });
 
+//Display message at end of game
 function displayWinner() {
     let winnerDisplay = document.getElementById("winnerDisplay");
     if (player_score === 5 && player_score > computer_score) {
