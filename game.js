@@ -23,38 +23,38 @@ function playRound(playerSelection, computerSelection) {
     let computerSelectionCap = computerSelection.toUpperCase();
     
     if (playerSelectionCap === computerSelectionCap) {
-        return "You Tie!";
+        return "You TIE!";
     } else {
         switch (playerSelectionCap) {
             case "ROCK":
                 if (computerSelectionCap === "PAPER") {
                     computer_score++;
                     updateScoreBoard();
-                    return "You Lose! Paper covers Rock";
+                    return "You Lose round! Paper covers Rock";
                 } else {
                     player_score++;
                     updateScoreBoard();
-                    return "You Win! Rock smashes Scissors";
+                    return "You Win round! Rock smashes Scissors";
                 }
             case "PAPER":
                 if (computerSelectionCap === "ROCK") {
                     player_score++;
                     updateScoreBoard();
-                    return "You Win! Paper covers Rock";
+                    return "You Win round! Paper covers Rock";
                 } else {
                     computer_score++;
                     updateScoreBoard();
-                    return "You Lose! Scissors cut Paper";
+                    return "You Lose round! Scissors cut Paper";
                 }
             case "SCISSORS":
                 if (computerSelectionCap === "ROCK") {
                     computer_score++;
                     updateScoreBoard();
-                    return "You Lose! Rock smashes Scissors";
+                    return "You Lose round! Rock smashes Scissors";
                 } else {
                     player_score++;
                     updateScoreBoard();
-                    return "You Win! Scissors cut Paper";
+                    return "You Win round! Scissors cut Paper";
                 }
             default:
                 return "Invalid Selection";
@@ -92,6 +92,14 @@ function displayWinner() {
     } else if (computer_score === 5 && player_score < computer_score) {
         winnerDisplay.textContent = "You lost the game!";
     }
+}
+
+function resetGame() {
+    player_score = 0;
+    computer_score = 0;
+    document.getElementById("result").textContent = "";
+    document.getElementById("winnerDisplay").textContent = "";
+    document.getElementById("reset").style.display = "none";
 }
 
 //Add buttons in place of a prompt and add event listeners for each

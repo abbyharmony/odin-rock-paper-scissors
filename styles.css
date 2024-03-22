@@ -64,9 +64,19 @@ p {
     background-color: lime;
 }
 
+button {
+    font-size: 32px;
+    color: purple;
+    border: none;
+    border-radius: 20%;
+    padding: 16px; 
+}
+
 .choose{
     font-size: 150px;
     color: white;
+    display: flex;
+    flex-direction: column;
     text-align: center;
     margin-top: 10px;
 }
