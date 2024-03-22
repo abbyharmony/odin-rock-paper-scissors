@@ -9,13 +9,13 @@ body {
     margin-top: 20px;
 }
 
+/*Rock, Paper, Scissors selection style */
 .choices {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     gap: 100px;
 }
-
 
 img {
     height: 250px;
@@ -39,6 +39,7 @@ p {
     margin-bottom: 0;
 }
 
+/*Scoring and win/lose/tie messages */
 #scoreBoard p {
     font-size: 30px;
     color: white;
@@ -64,14 +65,7 @@ p {
     background-color: lime;
 }
 
-button {
-    font-size: 32px;
-    color: purple;
-    border: none;
-    border-radius: 20%;
-    padding: 16px; 
-}
-
+/*Instructions and reset game button */
 .choose{
     font-size: 150px;
     color: white;
@@ -79,4 +73,10 @@ button {
     flex-direction: column;
     text-align: center;
     margin-top: 10px;
+}
+
+button {
+    font-size: 32px;
+    color: purple;
+    border: none;
 }
