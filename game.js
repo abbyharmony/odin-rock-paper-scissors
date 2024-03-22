@@ -11,7 +11,7 @@ function getComputerChoice() {
 }
 
 //Update player_score vs computer_score on the scoreboard
-function updateScoreboard() {
+function updateScoreBoard() {
     document.getElementById("player_score").textContent = player_score;
     document.getElementById("computer_score").textContent = computer_score;
 }
@@ -29,31 +29,31 @@ function playRound(playerSelection, computerSelection) {
             case "ROCK":
                 if (computerSelectionCap === "PAPER") {
                     computer_score++;
-                    updateScoreboard();
+                    updateScoreBoard();
                     return "You Lose! Paper covers Rock";
                 } else {
                     player_score++;
-                    updateScoreboard();
+                    updateScoreBoard();
                     return "You Win! Rock smashes Scissors";
                 }
             case "PAPER":
                 if (computerSelectionCap === "ROCK") {
                     player_score++;
-                    updateScoreboard();
+                    updateScoreBoard();
                     return "You Win! Paper covers Rock";
                 } else {
                     computer_score++;
-                    updateScoreboard();
+                    updateScoreBoard();
                     return "You Lose! Scissors cut Paper";
                 }
             case "SCISSORS":
                 if (computerSelectionCap === "ROCK") {
                     computer_score++;
-                    updateScoreboard();
+                    updateScoreBoard();
                     return "You Lose! Rock smashes Scissors";
                 } else {
                     player_score++;
-                    updateScoreboard();
+                    updateScoreBoard();
                     return "You Win! Scissors cut Paper";
                 }
             default:
@@ -68,6 +68,7 @@ function updateResultDisplay (result) {
     resultDisplay.textContent = result;
     if (player_score === 5 || computer_score === 5) {
         document.getElementById("resultDisplay").style.display = "none";
+        document.getElementById("scoreBoard").style.display = "none";
     }
 }
 
@@ -87,9 +88,9 @@ selectionImages.forEach(image => {
 function displayWinner() {
     let winnerDisplay = document.getElementById("winnerDisplay");
     if (player_score === 5 && player_score > computer_score) {
-        winnerDisplay.textContent = "You win the game!";
+        winnerDisplay.textContent = "You won the game!";
     } else if (computer_score === 5 && player_score < computer_score) {
-        winnerDisplay.textContent = "Computer wins the game!";
+        winnerDisplay.textContent = "You lost the game!";
     }
 }
 

@@ -39,7 +39,7 @@ p {
     margin-bottom: 0;
 }
 
-#scoreboard p {
+#scoreBoard p {
     font-size: 30px;
     color: white;
 }
@@ -59,13 +59,14 @@ p {
 }
 
 #winnerDisplay {
-    font-size: 100px;
+    font-size: 80px;
     color: white;
     background-color: lime;
 }
 
 .choose{
-    font-size: 200px;
+    font-size: 150px;
+    color: white;
     text-align: center;
     margin-top: 10px;
 }
