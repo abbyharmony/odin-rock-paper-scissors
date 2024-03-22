@@ -2,15 +2,14 @@ let player_score = 0;
 let computer_score = 0;
 let roundsPlayed = 0;
 
-
-//Write a function that randomly returns 'Rock', 'Paper', or 'Scissors'
+// Write a function that randomly returns 'Rock', 'Paper', or 'Scissors'
 function getComputerChoice() {
     let choices = ["Rock", "Paper", "Scissors"];
     let randomInd = Math.floor(Math.random() * choices.length);
     return choices[randomInd];
 }
 
-//Update player_score vs computer_score on the scoreboard
+// Update player_score vs computer_score on the scoreboard
 function updateScoreBoard() {
     document.getElementById("player_score").textContent = player_score;
     document.getElementById("computer_score").textContent = computer_score;
@@ -62,7 +61,8 @@ function playRound(playerSelection, computerSelection) {
     } 
 }  
 
-//Update the results display when called and removes round win/lose messages at end of game
+/* Update the results display when called and 
+removes round win/lose/tie messages and scoreboard at end of game */
 function updateResultDisplay (result) {
     let resultDisplay = document.getElementById('resultDisplay');
     resultDisplay.textContent = result;
@@ -72,7 +72,7 @@ function updateResultDisplay (result) {
     }
 }
 
-//Allows clickable images, calls updateResultsDisplay/displayWinner functions
+// Allows clickable images and calls updateResultsDisplay/displayWinner functions
 const selectionImages = document.querySelectorAll('.selection');
 selectionImages.forEach(image => {
     image.addEventListener('click', function() {
@@ -84,7 +84,7 @@ selectionImages.forEach(image => {
     });
 });
 
-//Display message at end of game
+// Display message at end of game
 function displayWinner() {
     let winnerDisplay = document.getElementById("winnerDisplay");
     if (player_score === 5 && player_score > computer_score) {
@@ -94,15 +94,7 @@ function displayWinner() {
     }
 }
 
-function resetGame() {
-    player_score = 0;
-    computer_score = 0;
-    document.getElementById("result").textContent = "";
-    document.getElementById("winnerDisplay").textContent = "";
-    document.getElementById("reset").style.display = "none";
-}
-
-//Add buttons in place of a prompt and add event listeners for each
+// Add buttons in place of a prompt and add event listeners for each
 let rock = document.createElement("button");
 rock.textContent = "Rock";
 
@@ -112,7 +104,7 @@ paper.textContent = "Paper";
 let scissors = document.createElement("button");
 scissors.textContent = "Scissors";
 
-//Add event listeners to prompt the display results from each round
+// Add event listeners to prompt the display results from each round
 rock.addEventListener("click", function () {
     let result = playRound("ROCK", getComputerChoice());
     updateResultDisplay(result); 
