@@ -80,3 +80,27 @@ button {
     color: purple;
     border: none;
 }
+
+/* Media Queries */
+@media (max-width: 550px) {
+    .choices {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .selection {
+        max-height: 200px;
+        max-width: auto;
+    }
+
+    .choose {
+        font-size: 50px;
+    }
+
+    #resultDisplay, #winnerDisplay {
+        font-size: 35px;
+        text-align: center;
+    }
+}
